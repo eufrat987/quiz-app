@@ -1,14 +1,18 @@
 
-<div class="text-center border bg-red-300">
+<div class="text-center shadow bg-blue-100 dark:bg-blue-800 m-auto max-w-3xl rounded py-3">
     
-    <span class="text-xl"> {{ dto().question }} </span>
+    <div class="text-xl font-semibold mb-6"> {{ dto().question }} </div>
     
     <div [formGroup]="formGroup()">
         @for (answer of dto().answers; track answer.id) {
-            <input type="radio" formControlName="answer" [value]="answer.id"> 
-            {{answer.content}}   
+            
+            <label class="m-3 italic">
+                <input type="radio" formControlName="answer" [value]="answer.id"> 
+                {{answer.content}}
+            </label>
+            
         }
-
+        
     </div>
     
     
