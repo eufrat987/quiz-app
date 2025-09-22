@@ -3,10 +3,7 @@ package com.eufrat.controller;
 import com.eufrat.dto.QuizResponse;
 import com.eufrat.service.QuizService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -17,7 +14,8 @@ public class QuizController {
 
     private final QuizService quizService;
 
-    @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/random")
     public Optional<QuizResponse> getQuiz() {
         return quizService.getRandomQuiz();
     }

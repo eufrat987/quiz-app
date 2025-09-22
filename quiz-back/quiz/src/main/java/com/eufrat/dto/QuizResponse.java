@@ -12,7 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class QuizResponse {
+    Long id;
     String title;
-    List<QuestionDto> questions;
+    List<QuestionResponse> questions;
 
 }

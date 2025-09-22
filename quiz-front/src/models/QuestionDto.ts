@@ -3,5 +3,5 @@ import { AnswerDto } from "./AnswersDto"
 export interface QuestionDto {
     id: number
     question: string
-    answers: AnswerDto[]
+    choices: string[]
 }

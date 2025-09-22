@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class QuestionDto {
+public class QuestionResponse {
+    Long id;
     String question;
     String[] choices;
 }

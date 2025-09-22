@@ -5,11 +5,11 @@
     <div class="text-xl font-semibold mb-6"> {{ dto().question }} </div>
     
     <div [formGroup]="formGroup()">
-        @for (answer of dto().answers; track answer.id) {
+        @for (answer of dto().choices; track $index) {
             
             <label class="m-3 italic">
-                <input type="radio" formControlName="answer" [value]="answer.id"> 
-                {{answer.content}}
+                <input type="radio" formControlName="answer" [value]="answer"> 
+                {{answer}}
             </label>
             
         }

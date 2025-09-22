@@ -1,6 +1,6 @@
 package com.eufrat.service;
 
-import com.eufrat.dto.QuestionDto;
+import com.eufrat.dto.QuestionResponse;
 import com.eufrat.dto.QuizResponse;
 import com.eufrat.model.Question;
 import com.eufrat.model.Quiz;
@@ -20,9 +20,11 @@ public class QuizService {
     public Optional<QuizResponse> getRandomQuiz() {
         return quizRepository.getRandomQuiz().map(quiz -> {
             return QuizResponse.builder()
+                    .id(quiz.getId())
                     .title(quiz.getTitle())
                     .questions(quiz.getQuestions().stream().map(q -> {
-                        return QuestionDto.builder()
+                        return QuestionResponse.builder()
+                                .id(q.getId())
                                 .question(q.getQuestion())
                                 .choices(q.getChoices())
                                 .build();
