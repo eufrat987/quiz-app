@@ -1,6 +1,7 @@
 import { Component, input, signal } from '@angular/core';
 import { AnswerDto } from '../../models/AnswersDto';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { QuestionDto } from '../../models/QuestionDto';
 
 @Component({
   selector: 'app-question',
@@ -9,10 +10,6 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './question.css'
 })
 export class Question {
-
-  questionId = input.required<number>()
-  question = input.required<string>()
-  answers = input.required<AnswerDto[]>()
+  dto = input.required<QuestionDto>()
   formGroup = input.required<FormGroup>()
-
 }

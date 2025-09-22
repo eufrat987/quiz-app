@@ -4,20 +4,15 @@
     
     @for (questionDto of questions(); track questionDto.id) {
         
-        <app-question [questionId]="questionDto.id" 
-        [question]="questionDto.question"
-        [formGroup]="questionGroupForm(questionDto.id)"
-        [answers]="questionDto.answers"> 
+        <app-question [dto]="questionDto" 
+        [formGroup]="questionGroupForm(questionDto)">
     </app-question>
     
 }
 
 
 <br>
-<button type="submit">Submit</button>
+<button type="submit" (click)="submit()">Submit</button>
 
 </form>
-
-
-{{ questionGroupForm(1).get('answer')?.value }}
 

@@ -1,13 +1,17 @@
 
-<h4> {{ question() }} </h4>
+<div class="text-center border bg-red-300">
+    
+    <span class="text-xl"> {{ dto().question }} </span>
+    
+    <div [formGroup]="formGroup()">
+        @for (answer of dto().answers; track answer.id) {
+            <input type="radio" formControlName="answer" [value]="answer.id"> 
+            {{answer.content}}   
+        }
 
-<div [formGroup]="formGroup()">
-
-
-@for (answer of answers(); track answer.id) {
-    <input type="radio" formControlName="answer" [value]="answer.id"> 
-    {{answer.content}}   
-}
-
+    </div>
+    
+    
+    
 </div>
 
