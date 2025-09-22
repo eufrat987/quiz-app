@@ -13,6 +13,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String question;
     @Column(columnDefinition = "text[]")
     private String[] choices;
     private String answer;
