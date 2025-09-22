@@ -1,13 +1,12 @@
 
 <h4> {{ question() }} </h4>
 
-<div [formGroup]="form()">
+<div [formGroup]="formGroup()">
 
 
 @for (answer of answers(); track answer.id) {
-    <input type="radio" [formControlName]="'selectedAnswer' + questionId()" [value]="answer.id"> 
+    <input type="radio" formControlName="answer" [value]="answer.id"> 
     {{answer.content}}   
-    <br> 
 }
 
 </div>

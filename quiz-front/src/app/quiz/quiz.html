@@ -1,19 +1,23 @@
 
 
 <form [formGroup]="form">
-    <app-question [questionId]=1 question="Capital?"
-    [form]="questionForm(1)"
-    [answers]="[
-    {id: 1, content: 'Warsaw'}, 
-    {id: 2, content: 'Cracow'},
-    {id: 3, content: 'Opole'}
-    ]"> 
-</app-question>
+    
+    @for (questionDto of questions(); track questionDto.id) {
+        
+        <app-question [questionId]="questionDto.id" 
+        [question]="questionDto.question"
+        [formGroup]="questionGroupForm(questionDto.id)"
+        [answers]="questionDto.answers"> 
+    </app-question>
+    
+}
+
+
 <br>
 <button type="submit">Submit</button>
 
 </form>
 
 
-{{ form }}
+{{ questionGroupForm(1).get('answer')?.value }}
 

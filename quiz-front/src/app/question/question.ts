@@ -13,6 +13,6 @@ export class Question {
   questionId = input.required<number>()
   question = input.required<string>()
   answers = input.required<AnswerDto[]>()
-  form = input.required<FormGroup>()
+  formGroup = input.required<FormGroup>()
 
 }

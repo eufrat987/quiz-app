@@ -1,7 +1,7 @@
 import { AnswerDto } from "./AnswersDto"
 
 export interface QuestionDto {
-    id: Number
-    question: String
+    id: number
+    question: string
     answers: AnswerDto[]
 }

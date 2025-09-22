@@ -1,5 +1,5 @@
 
 export interface AnswerDto {
-    id: Number
-    content: String
+    id: number
+    content: string
 }

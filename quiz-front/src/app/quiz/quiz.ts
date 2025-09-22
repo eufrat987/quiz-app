@@ -10,7 +10,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Va
   styleUrl: './quiz.css'
 })
 export class Quiz {
-  title = signal<String>("")
+  title = signal<string>("")
   questions = signal<QuestionDto[]>([
     {
       id: 1,
@@ -32,13 +32,13 @@ export class Quiz {
       this.form.addControl(
         "question" + question.id,
         this.fb.group({
-          ["selectedAnswer" + question.id]: [null, Validators.required]
+          answer: [null, Validators.required]
         })
       )
     }
   }
 
-  questionForm(id : number) : FormGroup {
+  questionGroupForm(id : Number) : FormGroup {
     return this.form.get("question" + id) as FormGroup
   }
   
