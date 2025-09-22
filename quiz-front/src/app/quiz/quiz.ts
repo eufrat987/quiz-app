@@ -26,7 +26,70 @@ export class Quiz {
         {id: 2, content: 'Cracow'},
         {id: 3, content: 'Opole'}
       ]
-    }
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
+    {
+      id: 1,
+      question: "Capital?",
+      answers: [
+        {id: 1, content: 'Warsaw'}, 
+        {id: 2, content: 'Cracow'},
+        {id: 3, content: 'Opole'}
+      ]
+    },
   ])
   
   

@@ -1,20 +1,23 @@
 
 
-<form [formGroup]="form" class="shadow m-auto mt-3 p-3 text-center bg-blue-50 dark:bg-blue-900 rounded max-w-5xl">
+<form [formGroup]="form" class="shadow m-auto my-3 p-3 text-center bg-blue-50 dark:bg-blue-900 rounded max-w-7xl">
     
-    @for (questionDto of questions(); track questionDto.id) {
-        
-        <app-question [dto]="questionDto" 
-        [formGroup]="questionGroupForm(questionDto)">
-    </app-question>
+    <div class="grid grid-cols-1 md:grid-cols-2">
+        @for (questionDto of questions(); track questionDto.id; let i = $index) {
+            
+            <app-question [index]="i" [dto]="questionDto" 
+            [formGroup]="questionGroupForm(questionDto)">
+        </app-question>
+    }
     
-}
+</div>
+
 
 
 <br>
 <button class="bg-amber-500 hover:bg-amber-400 active:bg-amber-300 dark:text-amber-50 text-amber-900
 dark:bg-amber-900  dark:hover:bg-amber-800  active:dark:bg-amber-700 
-p-3 rounded-2xl" type="submit" (click)="submit()">
+p-3 rounded-2xl w-md m-auto" type="submit" (click)="submit()">
 Submit answers
 </button>
 
