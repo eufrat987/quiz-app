@@ -24,5 +24,9 @@ export class Styles {
     get secondaryColorStyleClasses() : string {
         return "bg-blue-100 dark:bg-blue-800"
     }
+
+    get primaryTextColorStyleClasses() : string {
+        return "dark:text-amber-500 text-amber-900"
+    }
     
 }

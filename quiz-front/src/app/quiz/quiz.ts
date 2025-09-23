@@ -1,4 +1,4 @@
-import { Component, computed, effect, inject, Signal, signal } from '@angular/core';
+import { Component, computed, effect, inject, resource, Signal, signal } from '@angular/core';
 import { QuestionDto } from '../../models/QuestionDto';
 import { Question } from "../question/question";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -7,6 +7,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { QuizDto } from '../../models/QuizDto';
 import { Styles } from '../services/styles';
 import { User } from '../services/user';
+import { lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -24,17 +25,25 @@ export class Quiz {
   id = 1
   title = signal<string>("")
   
-  quiz: Signal<QuizDto | undefined> 
+  // quiz: Signal<QuizDto | undefined> 
   questions = signal<QuestionDto[]>([])
   styles = inject(Styles)
   user = inject(User)
-  
+  isLoading = signal(true)
+  quiz = resource({
+    loader: () => lastValueFrom(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"))
+  })
+
   constructor() {
+    
+
+    this.isLoading.set(true)
     this.user.redirectIfNeeded()
-    this.quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
+    // this.quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random");
+
     effect(() => {
-      this.title.set(this.quiz()?.title ?? "")
-      this.questions.set(this.quiz()?.questions ?? [])
+      this.title.set(this.quiz.value()?.title ?? "")
+      this.questions.set(this.quiz.value()?.questions ?? [])
       for (let question of this.questions()) {
         this.form.addControl(
           this.questionGroupId(question),
@@ -73,7 +82,7 @@ export class Quiz {
   }
   
   get url() : string {
-    return "http://localhost:8080/api/quiz/" + this.quiz()?.id;
+    return "http://localhost:8080/api/quiz/" + this.quiz.value()?.id;
   }
   
   get buttonDisabled() : boolean {

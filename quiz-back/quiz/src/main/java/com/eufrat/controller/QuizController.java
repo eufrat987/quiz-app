@@ -18,6 +18,11 @@ public class QuizController {
     @GetMapping("/random")
     @ResponseStatus(HttpStatus.OK)
     public Optional<QuizResponse> getQuiz() {
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return quizService.getRandomQuiz();
     }
 

@@ -1,30 +1,46 @@
-
 <form [formGroup]="form" [class]="styles.formStyleClasses" (ngSubmit)="submit()">
     
-    <div class="text-3xl font-bold text-center text-amber-900 dark:text-amber-600"> {{title()}}</div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2">
-        @for (questionDto of questions(); track questionDto.id; let i = $index) {
+    @if (quiz.isLoading()) {
+        
+        <div [class]="styles.primaryTextColorStyleClasses"> Loading... </div>
+        
+    } @else if (quiz.error()) {
+        
+        <div [class]="styles.primaryTextColorStyleClasses"> Error, please try again later </div>
+        
+    } @else {
+        
+        <div class="text-3xl font-bold text-center text-amber-900 dark:text-amber-600"> {{title()}}</div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2">
             
-            <app-question [index]="i" [questionDto]="questionDto" 
-            [formGroup]="questionGroupForm(questionDto)">
-        </app-question>
-    }
+            @for (questionDto of questions(); track questionDto.id; let i = $index) {
+                
+                <app-question [index]="i" [questionDto]="questionDto" 
+                [formGroup]="questionGroupForm(questionDto)">
+            </app-question>
+            
+        }
+        
+    </div>
+
+    <br>
+
+    <button [class]="styles.buttonStyleClasses" type="submit" [disabled]="buttonDisabled">
+        Submit answers
+    </button>
     
-</div>
-
-
-
-<br>
-<button [class]="styles.buttonStyleClasses" type="submit" [disabled]="buttonDisabled">
-    Submit answers
-</button>
+}
 
 </form>
-
 
 @if (showScore()) {
     <div class="m-auto w-md text-center text-4xl font-bold dark:text-amber-500 text-amber-900">
         <span>Score: {{score()}} / {{questions().length}}</span>
     </div>
 }
+
+
+
+
+
