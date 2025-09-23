@@ -23,7 +23,7 @@ public class QuizController {
 
     @PostMapping("/{id}")
     public int create(@PathVariable("id") Long id, @RequestBody Map<String, Map<String, String>> request) {
-        quizService.create();
+//        quizService.create();
         return quizService.getScore(id, request);
     }
 }
