@@ -6,8 +6,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api/quiz")
@@ -24,13 +23,10 @@ public class QuizController {
     }
 
     @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping
-    public int create(@RequestBody Map<String, Object> b) {
-        quizService.create();
-//        b.entrySet().forEach(stringStringEntry -> {
-//            System.out.println(stringStringEntry.getKey() + ' ' + stringStringEntry.getValue());
-//        });
-        return 0;
+    @PostMapping(":id")
+    public int create(@PathVariable("id") Long id, @RequestBody Map<String, Map<String, String>> request) {
+//        quizService.create();
+        return quizService.getScore(id, request);
     }
 
 }

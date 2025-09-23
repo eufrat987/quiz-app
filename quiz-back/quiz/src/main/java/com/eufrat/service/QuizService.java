@@ -8,8 +8,7 @@ import com.eufrat.repository.QuizRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 @AllArgsConstructor
@@ -31,6 +30,28 @@ public class QuizService {
                     }).toList())
                     .build();
         });
+    }
+
+    public int getScore(Long quizId, Map<String, Map<String, String>> request) {
+        var score = 0;
+        var quiz = quizRepository.findById(quizId).orElseThrow();
+        var mapIterator = request.values().iterator();
+        var answers = new HashMap<Long, String>();
+
+        while (mapIterator.hasNext()) {
+            var map = mapIterator.next();
+            for (var entry : map.entrySet()) {
+                answers.put(Long.valueOf(entry.getKey()), entry.getValue());
+            }
+        }
+
+        for (var question : quiz.getQuestions()) {
+            if (Objects.equals(question.getAnswer(), answers.get(question.getId()))) {
+                score++;
+            }
+        }
+
+        return score;
     }
 
     public void create() {

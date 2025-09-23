@@ -33,7 +33,7 @@ export class Quiz {
         this.form.addControl(
           this.questionGroupId(question),
           this.fb.group({
-            answer: [null, Validators.required]
+            [question.id]: [null, Validators.required]
           })
         )
       }

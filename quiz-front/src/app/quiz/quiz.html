@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2">
         @for (questionDto of questions(); track questionDto.id; let i = $index) {
             
-            <app-question [index]="i" [dto]="questionDto" 
+            <app-question [index]="i" [questionDto]="questionDto" 
             [formGroup]="questionGroupForm(questionDto)">
         </app-question>
     }

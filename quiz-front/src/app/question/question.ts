@@ -11,7 +11,7 @@ import { QuestionDto } from '../../models/QuestionDto';
 })
 export class Question {
   index = input.required<number>()
-  dto = input.required<QuestionDto>()
+  questionDto = input.required<QuestionDto>()
   formGroup = input.required<FormGroup>()
 
 
