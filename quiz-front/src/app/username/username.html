@@ -1,0 +1,19 @@
+
+
+<form [class]="styles.formStyleClasses" class="text-center">
+    
+    <div [class]="styles.formGroupStyleClasses + ' ' +  styles.secondaryColorStyleClasses" class="m-auto h-60">
+        
+        <div class="flex items-center h-full justify-center">
+            <label class="text-2xl">
+                Username:
+                <input name="username" class="bg-amber-50 rounded text-amber-900" type="text" #text>
+            </label>    
+        </div>
+    </div>
+    
+    <button [class]="styles.buttonStyleClasses" type="button" (click)="click(text.value)">
+        Enter
+    </button>
+    
+</form>

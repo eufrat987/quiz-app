@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { QuizDto } from '../../models/QuizDto';
+import { Styles } from '../utils/styles';
 
 @Component({
   selector: 'app-quiz',
@@ -24,6 +25,7 @@ export class Quiz {
   
   quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
   questions = signal<QuestionDto[]>([])
+  styles = inject(Styles)
   
   
   constructor() {

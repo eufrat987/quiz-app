@@ -1,7 +1,7 @@
-import { Component, input, signal } from '@angular/core';
-import { AnswerDto } from '../../models/AnswersDto';
+import { Component, inject, input, signal } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { QuestionDto } from '../../models/QuestionDto';
+import { Styles } from '../utils/styles';
 
 @Component({
   selector: 'app-question',
@@ -13,9 +13,10 @@ export class Question {
   index = input.required<number>()
   questionDto = input.required<QuestionDto>()
   formGroup = input.required<FormGroup>()
+  styles = inject(Styles)
 
 
-  getColor() : string {
+  get color() : string {
     if (this.index()%3 === 0) {
       return "bg-blue-100 dark:bg-blue-800";
     } else if (this.index()%3 === 1) {
