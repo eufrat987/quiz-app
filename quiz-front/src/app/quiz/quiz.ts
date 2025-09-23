@@ -20,7 +20,7 @@ export class Quiz {
   showScore = signal<boolean>(false)
 
   id = 1
-  title = signal<string>("Geografia")
+  title = signal<string>("")
   
   quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
   questions = signal<QuestionDto[]>([])
@@ -28,6 +28,7 @@ export class Quiz {
   
   constructor() {
     effect(() => {
+      this.title.set(this.quiz()?.title ?? "")
       this.questions.set(this.quiz()?.questions ?? [])
       for (let question of this.questions()) {
         this.form.addControl(

@@ -1,23 +1,25 @@
 package com.eufrat.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
 
 import java.util.List;
 
 @Entity(name = "t_quiz")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Quiz {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Quiz must have title")
     private String title;
     @OneToMany(mappedBy = "quiz", cascade = CascadeType.ALL)
 
+    @NotEmpty(message = "Quiz must have questions")
     private List<Question> questions;
 }
