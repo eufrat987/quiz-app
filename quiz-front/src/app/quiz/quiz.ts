@@ -16,7 +16,9 @@ export class Quiz {
   http = inject(HttpClient)
   fb = inject(FormBuilder)
   form = this.fb.group({})
-  
+  score = signal<number>(0)
+  showScore = signal<boolean>(false)
+
   id = 1
   title = signal<string>("")
   
@@ -43,27 +45,29 @@ export class Quiz {
   }
   
   questionGroupId(question : QuestionDto) : string {
-    return "question" + question.id;
+    return "question_" + question.id;
   }
   
   submit() {
     if (this.form.valid) {
       const data = this.form.value
       console.log(data)
+      console.log("data")
       
       this.http.post(this.url, data)
       .subscribe({
-        next: (response) => console.log(response),
+        next: (response) => {
+          this.score.set(response as number)
+          this.showScore.set(true)
+          console.log(response)
+        },
         error: (error) => console.log(error)
       });
-    } else {
-      console.log("t")
-      this.form.markAllAsTouched()
     }
   }
   
   get url() : string {
-    return "http://localhost:8080/quiz" + this.id + "/answer";
+    return "http://localhost:8080/api/quiz";
   }
   
   get buttonDisabled() : boolean {

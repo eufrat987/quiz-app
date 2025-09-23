@@ -27,3 +27,9 @@ Submit answers
 
 </form>
 
+
+@if (showScore()) {
+    <div class="m-auto w-md text-center text-4xl font-bold dark:text-amber-500 text-amber-900">
+        <span>Score: {{score()}} / {{questions().length}}</span>
+    </div>
+}
