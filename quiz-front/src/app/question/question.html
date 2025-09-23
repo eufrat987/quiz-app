@@ -7,7 +7,7 @@
     <div [formGroup]="formGroup()">
         @for (answer of dto().choices; track $index) {
             
-            <label class="m-3 italic ">
+            <label class="m-3 italic inline-block">
                 <input type="radio" formControlName="answer" [value]="answer"> 
                 {{answer}}
             </label>

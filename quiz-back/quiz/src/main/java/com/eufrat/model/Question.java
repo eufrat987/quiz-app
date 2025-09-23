@@ -17,4 +17,8 @@ public class Question {
     @Column(columnDefinition = "text[]")
     private String[] choices;
     private String answer;
+
+    @ManyToOne
+    @JoinColumn(name = "quiz_id")
+    private Quiz quiz;
 }

@@ -33,16 +33,26 @@ public class QuizService {
         });
     }
 
-    public void creat() {
+    public void create() {
         var x = new Quiz();
-        x.setTitle("T");
         var q1 = new Question();
-        q1.setQuestion("AAAA?");
-        q1.setChoices(new String[]{"1", "2", "3", "4"});
         var q2 = new Question();
-        q2.setQuestion("VVVV");
-        q2.setChoices(new String[]{"1", "2", "3", "4"});
-        x.setQuestions(List.of(q1, q2));
+        var q3 = new Question();
+
+        q1.setQuiz(x);
+        q1.setQuestion("What is the capital of Poland??");
+        q1.setChoices(new String[]{"Opole", "Gdańsk", "Warszawa", "Gniezno"});
+
+        q2.setQuestion("What is the capital of France");
+        q2.setChoices(new String[]{"Haguenau", "Ribeauvillé", "Paris", "Mont-de-Marsan"});
+        q2.setQuiz(x);
+
+        q3.setQuiz(x);
+        q3.setQuestion("What is the capital of Germany");
+        q3.setChoices(new String[]{"Hamburg", "Dortmund", "Dresden:", "Berlin"});
+
+        x.setTitle("Geography");
+        x.setQuestions(List.of(q1, q2, q3));
         quizRepository.save(x);
     }
 

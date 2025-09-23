@@ -26,10 +26,10 @@ public class QuizController {
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping
     public int create(@RequestBody Map<String, Object> b) {
-//        quizService.creat()
-        b.entrySet().forEach(stringStringEntry -> {
-            System.out.println(stringStringEntry.getKey() + ' ' + stringStringEntry.getValue());
-        });
+        quizService.create();
+//        b.entrySet().forEach(stringStringEntry -> {
+//            System.out.println(stringStringEntry.getKey() + ' ' + stringStringEntry.getValue());
+//        });
         return 0;
     }
 
