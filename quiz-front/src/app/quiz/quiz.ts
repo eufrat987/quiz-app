@@ -20,7 +20,7 @@ export class Quiz {
   showScore = signal<boolean>(false)
 
   id = 1
-  title = signal<string>("")
+  title = signal<string>("Geografia")
   
   quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
   questions = signal<QuestionDto[]>([])

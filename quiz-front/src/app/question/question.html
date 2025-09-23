@@ -1,13 +1,13 @@
 
 
-<div class="text-center  m-3 max-w-3xl rounded py-3 shadow" [class]="getColor()">
+<div class="text-center  m-3 max-w-3xl rounded py-3 shadow text-amber-900 dark:text-amber-300" [class]="getColor()">
     
     <div class="text-xl font-semibold mb-6"> {{ dto().question }} </div>
     
     <div [formGroup]="formGroup()">
         @for (answer of dto().choices; track $index) {
             
-            <label class="m-3 italic">
+            <label class="m-3 italic ">
                 <input type="radio" formControlName="answer" [value]="answer"> 
                 {{answer}}
             </label>
@@ -15,8 +15,5 @@
         }
         
     </div>
-    
-    
-    
-</div>
 
+</div>
