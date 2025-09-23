@@ -1,7 +1,7 @@
 import { Component, inject, input, signal } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { QuestionDto } from '../../models/QuestionDto';
-import { Styles } from '../utils/styles';
+import { Styles } from '../services/styles';
 
 @Component({
   selector: 'app-question',

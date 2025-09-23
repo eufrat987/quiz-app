@@ -1,11 +1,12 @@
-import { Component, computed, effect, inject, signal } from '@angular/core';
+import { Component, computed, effect, inject, Signal, signal } from '@angular/core';
 import { QuestionDto } from '../../models/QuestionDto';
 import { Question } from "../question/question";
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { QuizDto } from '../../models/QuizDto';
-import { Styles } from '../utils/styles';
+import { Styles } from '../services/styles';
+import { User } from '../services/user';
 
 @Component({
   selector: 'app-quiz',
@@ -23,12 +24,14 @@ export class Quiz {
   id = 1
   title = signal<string>("")
   
-  quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
+  quiz: Signal<QuizDto | undefined> 
   questions = signal<QuestionDto[]>([])
   styles = inject(Styles)
-  
+  user = inject(User)
   
   constructor() {
+    this.user.redirectIfNeeded()
+    this.quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
     effect(() => {
       this.title.set(this.quiz()?.title ?? "")
       this.questions.set(this.quiz()?.questions ?? [])

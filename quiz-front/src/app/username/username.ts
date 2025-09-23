@@ -1,7 +1,8 @@
 import { Component, inject, model, signal } from '@angular/core';
-import { Styles } from '../utils/styles';
+import { Styles } from '../services/styles';
 import { FormsModule } from "@angular/forms";
-import { Router } from '@angular/router';
+import { User } from '../services/user';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'app-username',
@@ -11,18 +12,9 @@ import { Router } from '@angular/router';
 })
 export class Username {
   styles = inject(Styles)
-  username = localStorage.getItem("username")
-  router = inject(Router)
-
-  constructor() {
-    console.log(this.username)
-    if (this.username !== null) {
-      this.router.navigate(["random"])
-    }
-  }
+  user = inject(User)
   
-  click(username: string) {
-    console.log(username)
-    localStorage.setItem("username", username);
+  click() {
+    this.user.redirectIfNeeded()
   }
 }

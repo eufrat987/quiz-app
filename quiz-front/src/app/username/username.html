@@ -7,12 +7,12 @@
         <div class="flex items-center h-full justify-center">
             <label class="text-2xl">
                 Username:
-                <input name="username" class="bg-amber-50 rounded text-amber-900" type="text" #text>
+                <input name="username" class="bg-amber-50 rounded text-amber-900" type="text"  [(ngModel)]="user.username">
             </label>    
         </div>
     </div>
     
-    <button [class]="styles.buttonStyleClasses" type="button" (click)="click(text.value)">
+    <button [class]="styles.buttonStyleClasses" type="button" [disabled]="!user.validUsername()" (click)="click()">
         Enter
     </button>
     
