@@ -21,14 +21,7 @@ export class Quiz {
   title = signal<string>("")
   
   quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"));
-  
-  questions = signal<QuestionDto[]>([
-    {
-      id: 1,
-      question: "Capital?",
-      choices: [ "Warsaw", "Warsaw", "Warsaw", "Warsaw"]
-    },
-  ])
+  questions = signal<QuestionDto[]>([])
   
   
   constructor() {
@@ -42,10 +35,7 @@ export class Quiz {
           })
         )
       }
-      
     })
-    
-    
   }
   
   questionGroupForm(question : QuestionDto) : FormGroup {
@@ -76,4 +66,8 @@ export class Quiz {
     return "http://localhost:8080/quiz" + this.id + "/answer";
   }
   
+  get buttonDisabled() : boolean {
+    return !this.form.valid;
+  }
+
 }

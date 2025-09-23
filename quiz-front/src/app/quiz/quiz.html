@@ -15,9 +15,13 @@
 
 
 <br>
-<button class="bg-amber-500 hover:bg-amber-400 active:bg-amber-300 dark:text-amber-500 text-amber-900
+<button class="bg-amber-500 hover:bg-amber-400 active:bg-amber-300  dark:text-amber-500 text-amber-900
 dark:bg-amber-900  dark:hover:bg-amber-800  active:dark:bg-amber-700 
-p-3 rounded-2xl w-md m-auto" type="submit" (click)="submit()">
+p-3 rounded-2xl w-md m-auto disabled:cursor-not-allowed
+dark:disabled:bg-gray-500 dark:disabled:hover:bg-gray-500 dark:disabled:active:bg-gray-500
+disabled:bg-gray-200 disabled:hover:bg-gray-200 disabled:active:bg-gray-200" 
+
+disabled type="submit" [disabled]="buttonDisabled" (click)="submit()">
 Submit answers
 </button>
 
