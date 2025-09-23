@@ -15,15 +15,13 @@ public class QuizController {
 
     private final QuizService quizService;
 
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/random")
     @ResponseStatus(HttpStatus.OK)
     public Optional<QuizResponse> getQuiz() {
         return quizService.getRandomQuiz();
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
-    @PostMapping(":id")
+    @PostMapping("/:id")
     public int create(@PathVariable("id") Long id, @RequestBody Map<String, Map<String, String>> request) {
 //        quizService.create();
         return quizService.getScore(id, request);

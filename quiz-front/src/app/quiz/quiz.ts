@@ -67,7 +67,7 @@ export class Quiz {
   }
   
   get url() : string {
-    return "http://localhost:8080/api/quiz";
+    return "http://localhost:8080/api/quiz/" + this.quiz()?.id;
   }
   
   get buttonDisabled() : boolean {
