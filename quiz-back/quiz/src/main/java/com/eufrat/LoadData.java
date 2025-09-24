@@ -28,6 +28,10 @@ public class LoadData {
         quiz9();
         quiz10();
         quiz11();
+        quiz12();
+        quiz13();
+        quiz14();
+        quiz15();
     }
 
     private void quiz1() {
@@ -393,6 +397,65 @@ public class LoadData {
 
         quizRepository.save(quiz);
     }
+
+    private void quiz12() {
+        var quiz = new Quiz();
+        quiz.setTitle("Animals Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "Which mammal is known to have the most powerful bite?", List.of("Lion", "Hippopotamus", "Great White Shark"), "Hippopotamus");
+        addQuestion(quiz, "What is a group of lions called?", List.of("Herd", "Pride", "Pack"), "Pride");
+        addQuestion(quiz, "Which bird is known for its impressive mimicry skills?", List.of("Parrot", "Crow", "Sparrow"), "Parrot");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz13() {
+        var quiz = new Quiz();
+        quiz.setTitle("Food Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "What fruit is used to make guacamole?", List.of("Tomato", "Avocado", "Mango"), "Avocado");
+        addQuestion(quiz, "Which spice is the most expensive by weight?", List.of("Saffron", "Vanilla", "Cinnamon"), "Saffron");
+        addQuestion(quiz, "Which cheese is traditionally used in a Greek salad?", List.of("Feta", "Mozzarella", "Cheddar"), "Feta");
+        addQuestion(quiz, "What is sushi traditionally wrapped in?", List.of("Rice paper", "Seaweed", "Lettuce"), "Seaweed");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz14() {
+        var quiz = new Quiz();
+        quiz.setTitle("Space Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "Which planet is the largest in our solar system?", List.of("Saturn", "Jupiter", "Neptune"), "Jupiter");
+        addQuestion(quiz, "How many moons does Mars have?", List.of("2", "1", "4"), "2");
+        addQuestion(quiz, "What is the name of the galaxy we live in?", List.of("Andromeda", "Milky Way", "Whirlpool"), "Milky Way");
+        addQuestion(quiz, "Which planet is closest to the sun?", List.of("Mercury", "Venus", "Earth"), "Mercury");
+        addQuestion(quiz, "What force keeps planets in orbit around the sun?", List.of("Magnetism", "Gravity", "Friction"), "Gravity");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz15() {
+        var quiz = new Quiz();
+        quiz.setTitle("Art Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "Who painted the Mona Lisa?", List.of("Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso"), "Leonardo da Vinci");
+        addQuestion(quiz, "Which art movement is Salvador Dalí associated with?", List.of("Surrealism", "Impressionism", "Cubism"), "Surrealism");
+        addQuestion(quiz, "The Starry Night was painted by?", List.of("Vincent van Gogh", "Claude Monet", "Edgar Degas"), "Vincent van Gogh");
+        addQuestion(quiz, "Which artist is famous for cutting off part of his ear?", List.of("Vincent van Gogh", "Claude Monet", "Michelangelo"), "Vincent van Gogh");
+        addQuestion(quiz, "What material is used in sculpture called 'marble'?", List.of("Stone", "Metal", "Wood"), "Stone");
+        addQuestion(quiz, "The technique of painting on wet plaster is called?", List.of("Fresco", "Mosaic", "Etching"), "Fresco");
+
+        quizRepository.save(quiz);
+    }
+
 
 
 
