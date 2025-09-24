@@ -21,6 +21,13 @@ public class LoadData {
         quiz2();
         quiz3();
         quiz4();
+        quiz5();
+        quiz6();
+        quiz7();
+        quiz8();
+        quiz9();
+        quiz10();
+        quiz11();
     }
 
     private void quiz1() {
@@ -182,6 +189,212 @@ public class LoadData {
 
         quizRepository.save(quiz1);
     }
+
+    private void quiz5() {
+        var quiz2 = new Quiz();
+        quiz2.setTitle("History Quiz");
+        quiz2.setNumOfQuestions(0);
+        quiz2.setQuestions(new ArrayList<>());
+
+        addQuestion(
+                quiz2,
+                "Who was the first President of the United States?",
+                List.of("George Washington", "Abraham Lincoln", "John Adams", "Thomas Jefferson"),
+                "George Washington"
+        );
+        addQuestion(
+                quiz2,
+                "In which year did World War II end?",
+                List.of("1945", "1939", "1950", "1942"),
+                "1945"
+        );
+        addQuestion(
+                quiz2,
+                "Which ancient civilization built the pyramids?",
+                List.of("Romans", "Greeks", "Egyptians", "Mayans"),
+                "Egyptians"
+        );
+        addQuestion(
+                quiz2,
+                "What was the name of the ship on which the Pilgrims traveled to North America in 1620?",
+                List.of("Santa Maria", "Mayflower", "Endeavour", "Discovery"),
+                "Mayflower"
+        );
+        addQuestion(
+                quiz2,
+                "Who discovered penicillin?",
+                List.of("Alexander Fleming", "Marie Curie", "Isaac Newton", "Albert Einstein"),
+                "Alexander Fleming"
+        );
+
+        quizRepository.save(quiz2);
+    }
+
+    private void quiz6() {
+        var quiz3 = new Quiz();
+        quiz3.setTitle("Science Quiz");
+        quiz3.setNumOfQuestions(0);
+        quiz3.setQuestions(new ArrayList<>());
+
+        addQuestion(
+                quiz3,
+                "What planet is known as the Red Planet?",
+                List.of("Mars", "Venus", "Jupiter", "Saturn"),
+                "Mars"
+        );
+        addQuestion(
+                quiz3,
+                "What is the chemical symbol for water?",
+                List.of("H2O", "O2", "CO2", "NaCl"),
+                "H2O"
+        );
+        addQuestion(
+                quiz3,
+                "How many bones are in the adult human body?",
+                List.of("206", "201", "196", "210"),
+                "206"
+        );
+        addQuestion(
+                quiz3,
+                "What gas do plants absorb from the atmosphere?",
+                List.of("Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"),
+                "Carbon Dioxide"
+        );
+        addQuestion(
+                quiz3,
+                "What part of the cell contains DNA?",
+                List.of("Nucleus", "Ribosome", "Cytoplasm", "Mitochondria"),
+                "Nucleus"
+        );
+
+        quizRepository.save(quiz3);
+    }
+
+    private void quiz7() {
+        var quiz = new Quiz();
+        quiz.setTitle("Movie Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(
+                quiz,
+                "Who directed the movie 'Inception'?",
+                List.of("Christopher Nolan", "James Cameron", "Steven Spielberg"),
+                "Christopher Nolan"
+        );
+        addQuestion(
+                quiz,
+                "Which movie features a talking snowman named Olaf?",
+                List.of("Frozen", "Moana", "Tangled"),
+                "Frozen"
+        );
+        addQuestion(
+                quiz,
+                "What color pill does Neo take in 'The Matrix'?",
+                List.of("Red", "Blue", "Green"),
+                "Red"
+        );
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz8() {
+        var quiz = new Quiz();
+        quiz.setTitle("Sports Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(
+                quiz,
+                "How many players are on a soccer team on the field?",
+                List.of("11", "10", "9"),
+                "11"
+        );
+        addQuestion(
+                quiz,
+                "Which country hosts the Wimbledon tennis tournament?",
+                List.of("USA", "UK", "Australia"),
+                "UK"
+        );
+        addQuestion(
+                quiz,
+                "In which sport can you get a 'hole in one'?",
+                List.of("Golf", "Cricket", "Baseball"),
+                "Golf"
+        );
+        addQuestion(
+                quiz,
+                "What sport uses a pommel horse?",
+                List.of("Gymnastics", "Equestrian", "Pole vaulting"),
+                "Gymnastics"
+        );
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz9() {
+        var quiz = new Quiz();
+        quiz.setTitle("Music Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(
+                quiz,
+                "Which instrument has 88 keys?",
+                List.of("Piano", "Organ", "Guitar"),
+                "Piano"
+        );
+        addQuestion(
+                quiz,
+                "Who is known as the 'King of Pop'?",
+                List.of("Michael Jackson", "Elvis Presley", "Prince"),
+                "Michael Jackson"
+        );
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz10() {
+        var quiz = new Quiz();
+        quiz.setTitle("Technology Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "What does CPU stand for?", List.of("Central Processing Unit", "Computer Personal Unit", "Central Performance Unit"), "Central Processing Unit");
+        addQuestion(quiz, "What is the name of the first programmable computer?", List.of("ENIAC", "UNIVAC", "Z3"), "Z3");
+        addQuestion(quiz, "Which company created the Java programming language?", List.of("Sun Microsystems", "Microsoft", "Apple"), "Sun Microsystems");
+        addQuestion(quiz, "What does HTML stand for?", List.of("HyperText Markup Language", "Hyperlink Text Mark Language", "Hyper Transfer Markup Language"), "HyperText Markup Language");
+        addQuestion(quiz, "What year was the first iPhone released?", List.of("2007", "2005", "2008"), "2007");
+        addQuestion(quiz, "Which technology is used to make phone calls over the Internet?", List.of("VoIP", "VPN", "HTTP"), "VoIP");
+        addQuestion(quiz, "What does RAM stand for?", List.of("Random Access Memory", "Readily Available Memory", "Run Access Memory"), "Random Access Memory");
+        addQuestion(quiz, "Which programming language is known for its snake logo?", List.of("Python", "Java", "Ruby"), "Python");
+        addQuestion(quiz, "What does USB stand for?", List.of("Universal Serial Bus", "Universal System Board", "Unified Serial Bus"), "Universal Serial Bus");
+        addQuestion(quiz, "What is the name of the AI assistant developed by Amazon?", List.of("Alexa", "Siri", "Cortana"), "Alexa");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz11() {
+        var quiz = new Quiz();
+        quiz.setTitle("Technology Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "What does CPU stand for?", List.of("Central Processing Unit", "Computer Personal Unit", "Central Performance Unit"), "Central Processing Unit");
+        addQuestion(quiz, "What is the name of the first programmable computer?", List.of("ENIAC", "UNIVAC", "Z3"), "Z3");
+        addQuestion(quiz, "Which company created the Java programming language?", List.of("Sun Microsystems", "Microsoft", "Apple"), "Sun Microsystems");
+        addQuestion(quiz, "What does HTML stand for?", List.of("HyperText Markup Language", "Hyperlink Text Mark Language", "Hyper Transfer Markup Language"), "HyperText Markup Language");
+        addQuestion(quiz, "What year was the first iPhone released?", List.of("2007", "2005", "2008"), "2007");
+        addQuestion(quiz, "Which technology is used to make phone calls over the Internet?", List.of("VoIP", "VPN", "HTTP"), "VoIP");
+        addQuestion(quiz, "What does RAM stand for?", List.of("Random Access Memory", "Readily Available Memory", "Run Access Memory"), "Random Access Memory");
+        addQuestion(quiz, "Which programming language is known for its snake logo?", List.of("Python", "Java", "Ruby"), "Python");
+        addQuestion(quiz, "What does USB stand for?", List.of("Universal Serial Bus", "Universal System Board", "Unified Serial Bus"), "Universal Serial Bus");
+        addQuestion(quiz, "What is the name of the AI assistant developed by Amazon?", List.of("Alexa", "Siri", "Cortana"), "Alexa");
+
+        quizRepository.save(quiz);
+    }
+
+
 
     private void addQuestion(Quiz quiz, String question, List<String> choices, String ans) {
         var q = new Question();
