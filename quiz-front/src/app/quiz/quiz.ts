@@ -8,6 +8,7 @@ import { QuizDto } from '../../models/QuizDto';
 import { Styles } from '../services/styles';
 import { User } from '../services/user';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -16,13 +17,15 @@ import { firstValueFrom, lastValueFrom } from 'rxjs';
   styleUrl: './quiz.css'
 })
 export class Quiz {
+  id: number
+
   http = inject(HttpClient)
   fb = inject(FormBuilder)
   form = this.fb.group({})
   score = signal<number>(0)
   showScore = signal<boolean>(false)
+  route = inject(ActivatedRoute)
 
-  id = 1
   title = signal<string>("")
   
   // quiz: Signal<QuizDto | undefined> 
@@ -30,11 +33,12 @@ export class Quiz {
   styles = inject(Styles)
   user = inject(User)
   quiz = resource({
-    loader: () => firstValueFrom(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"))
+    params: () => ({ id : this.id }),
+    loader: (params) => firstValueFrom(this.http.get<QuizDto>("http://localhost:8080/api/quiz/"+ params.params.id))
   })
 
   constructor() {
-    
+    this.id = +this.route.snapshot.paramMap.get("id")!;
 
     this.user.redirectIfNeeded()
     // this.quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random");

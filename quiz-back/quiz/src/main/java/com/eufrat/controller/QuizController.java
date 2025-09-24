@@ -19,9 +19,9 @@ public class QuizController {
         return quizService.getAllQuizes();
     }
 
-    @GetMapping("/random")
-    public Optional<QuizResponse> getQuiz() {
-        return quizService.getRandomQuiz();
+    @GetMapping("/{id}")
+    public Optional<QuizResponse> getQuiz(@PathVariable("id") Long id) {
+        return quizService.getQuiz(id);
     }
 
     @PostMapping("/{id}")

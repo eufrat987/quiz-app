@@ -24,6 +24,19 @@ public class QuizService {
                 .build()).toList();
     }
 
+    public Optional<QuizResponse> getQuiz(Long id) {
+        return quizRepository.findById(id).map(quiz -> QuizResponse.builder()
+                .id(quiz.getId())
+                .title(quiz.getTitle())
+                .numOfQuestions(quiz.getNumOfQuestions())
+                .questions(quiz.getQuestions().stream().map(q -> QuestionResponse.builder()
+                        .id(q.getId())
+                        .question(q.getQuestion())
+                        .choices(q.getChoices())
+                        .build()).toList())
+                .build());
+    }
+
     public Optional<QuizResponse> getRandomQuiz() {
         return quizRepository.getRandomQuiz().map(quiz -> QuizResponse.builder()
                 .id(quiz.getId())

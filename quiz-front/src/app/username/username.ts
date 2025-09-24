@@ -3,6 +3,7 @@ import { Styles } from '../services/styles';
 import { FormsModule } from "@angular/forms";
 import { User } from '../services/user';
 import { single } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-username',
@@ -13,8 +14,11 @@ import { single } from 'rxjs';
 export class Username {
   styles = inject(Styles)
   user = inject(User)
+  router = inject(Router)
   
   click() {
-    this.user.redirectIfNeeded()
+    if (this.user.validUsername()) {
+      this.router.navigate(["quizes"])
+    }
   }
 }

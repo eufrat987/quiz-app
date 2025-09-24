@@ -5,6 +5,6 @@ import { Quizes } from './quizes/quizes';
 
 export const routes: Routes = [
     { path: '', component: Username },
-    { path: 'random', component: Quiz },
+    { path: 'quiz/:id', component: Quiz },
     { path: 'quizes', component: Quizes }
 ];
