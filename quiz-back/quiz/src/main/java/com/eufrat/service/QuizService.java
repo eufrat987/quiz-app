@@ -75,31 +75,4 @@ public class QuizService {
         return score;
     }
 
-    public void create() {
-        var x = new Quiz();
-        var q1 = new Question();
-        var q2 = new Question();
-        var q3 = new Question();
-
-        q1.setQuiz(x);
-        q1.setQuestion("What is the capital of Poland??");
-        q1.setChoices(List.of("Opole", "Gdańsk", "Warszawa", "Gniezno"));
-        q1.setAnswer("Warszawa");
-
-        q2.setQuestion("What is the capital of France");
-        q2.setChoices(List.of("Haguenau", "Ribeauvillé", "Paris", "Mont-de-Marsan"));
-        q2.setQuiz(x);
-        q2.setAnswer("Paris");
-
-        q3.setQuiz(x);
-        q3.setQuestion("What is the capital of Germany");
-        q3.setChoices(List.of("Hamburg", "Dortmund", "Dresden:", "Berlin"));
-        q3.setAnswer("Berlin");
-
-        x.setTitle("Geography");
-        x.setQuestions(List.of(q1, q2, q3));
-        x.setNumOfQuestions(3);
-        quizRepository.save(x);
-    }
-
 }
