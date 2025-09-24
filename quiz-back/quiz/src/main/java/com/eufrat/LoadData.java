@@ -26,12 +26,14 @@ public class LoadData {
         quiz7();
         quiz8();
         quiz9();
-        quiz10();
         quiz11();
         quiz12();
         quiz13();
         quiz14();
         quiz15();
+        quiz16();
+        quiz17();
+        quiz18();
     }
 
     private void quiz1() {
@@ -358,26 +360,6 @@ public class LoadData {
         quizRepository.save(quiz);
     }
 
-    private void quiz10() {
-        var quiz = new Quiz();
-        quiz.setTitle("Technology Quiz");
-        quiz.setNumOfQuestions(0);
-        quiz.setQuestions(new ArrayList<>());
-
-        addQuestion(quiz, "What does CPU stand for?", List.of("Central Processing Unit", "Computer Personal Unit", "Central Performance Unit"), "Central Processing Unit");
-        addQuestion(quiz, "What is the name of the first programmable computer?", List.of("ENIAC", "UNIVAC", "Z3"), "Z3");
-        addQuestion(quiz, "Which company created the Java programming language?", List.of("Sun Microsystems", "Microsoft", "Apple"), "Sun Microsystems");
-        addQuestion(quiz, "What does HTML stand for?", List.of("HyperText Markup Language", "Hyperlink Text Mark Language", "Hyper Transfer Markup Language"), "HyperText Markup Language");
-        addQuestion(quiz, "What year was the first iPhone released?", List.of("2007", "2005", "2008"), "2007");
-        addQuestion(quiz, "Which technology is used to make phone calls over the Internet?", List.of("VoIP", "VPN", "HTTP"), "VoIP");
-        addQuestion(quiz, "What does RAM stand for?", List.of("Random Access Memory", "Readily Available Memory", "Run Access Memory"), "Random Access Memory");
-        addQuestion(quiz, "Which programming language is known for its snake logo?", List.of("Python", "Java", "Ruby"), "Python");
-        addQuestion(quiz, "What does USB stand for?", List.of("Universal Serial Bus", "Universal System Board", "Unified Serial Bus"), "Universal Serial Bus");
-        addQuestion(quiz, "What is the name of the AI assistant developed by Amazon?", List.of("Alexa", "Siri", "Cortana"), "Alexa");
-
-        quizRepository.save(quiz);
-    }
-
     private void quiz11() {
         var quiz = new Quiz();
         quiz.setTitle("Technology Quiz");
@@ -452,6 +434,49 @@ public class LoadData {
         addQuestion(quiz, "Which artist is famous for cutting off part of his ear?", List.of("Vincent van Gogh", "Claude Monet", "Michelangelo"), "Vincent van Gogh");
         addQuestion(quiz, "What material is used in sculpture called 'marble'?", List.of("Stone", "Metal", "Wood"), "Stone");
         addQuestion(quiz, "The technique of painting on wet plaster is called?", List.of("Fresco", "Mosaic", "Etching"), "Fresco");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz16() {
+        var quiz = new Quiz();
+        quiz.setTitle("Art Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "Who painted the Mona Lisa?", List.of("Leonardo da Vinci", "Vincent van Gogh", "Pablo Picasso"), "Leonardo da Vinci");
+        addQuestion(quiz, "Which art movement is Salvador Dalí associated with?", List.of("Surrealism", "Impressionism", "Cubism"), "Surrealism");
+        addQuestion(quiz, "The Starry Night was painted by?", List.of("Vincent van Gogh", "Claude Monet", "Edgar Degas"), "Vincent van Gogh");
+        addQuestion(quiz, "Which artist is famous for cutting off part of his ear?", List.of("Vincent van Gogh", "Claude Monet", "Michelangelo"), "Vincent van Gogh");
+        addQuestion(quiz, "What material is used in sculpture called 'marble'?", List.of("Stone", "Metal", "Wood"), "Stone");
+        addQuestion(quiz, "The technique of painting on wet plaster is called?", List.of("Fresco", "Mosaic", "Etching"), "Fresco");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz17() {
+        var quiz = new Quiz();
+        quiz.setTitle("Languages Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "What language has the most native speakers?", List.of("English", "Mandarin Chinese", "Spanish"), "Mandarin Chinese");
+        addQuestion(quiz, "Which language uses the Cyrillic alphabet?", List.of("Russian", "Greek", "Arabic"), "Russian");
+        addQuestion(quiz, "What language is primarily spoken in Brazil?", List.of("Spanish", "Portuguese", "French"), "Portuguese");
+
+        quizRepository.save(quiz);
+    }
+
+    private void quiz18() {
+        var quiz = new Quiz();
+        quiz.setTitle("History Quiz");
+        quiz.setNumOfQuestions(0);
+        quiz.setQuestions(new ArrayList<>());
+
+        addQuestion(quiz, "Who was the first man to step on the moon?", List.of("Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin"), "Neil Armstrong");
+        addQuestion(quiz, "Which empire was ruled by Genghis Khan?", List.of("Roman Empire", "Mongol Empire", "Ottoman Empire"), "Mongol Empire");
+        addQuestion(quiz, "In which year did the Berlin Wall fall?", List.of("1989", "1991", "1985"), "1989");
+        addQuestion(quiz, "Who was the British Prime Minister during most of World War II?", List.of("Winston Churchill", "Neville Chamberlain", "Clement Attlee"), "Winston Churchill");
 
         quizRepository.save(quiz);
     }
