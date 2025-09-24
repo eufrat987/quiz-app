@@ -1,12 +1,23 @@
-<header>
+<header class="flex bg-amber-500 dark:bg-amber-900 text-amber-900 dark:text-amber-500">
     
-    <div class="bg-amber-500 dark:bg-amber-900 text-amber-900 dark:text-amber-500 py-3 px-3">
+    <div class="py-3 px-3">
         <a href="#">
             <div class="flex items-center">
                 <img src="quiz.png">
                 <span class="text-2xl font-semibold m-3">Quiz App</span>
             </div>
         </a>
+        
+        
     </div>
+    
+    
+    @if (showUsername) {
+        <div class="flex w-full items-center justify-end m-6 text-2xl">
+            Hi {{ user.username() }}
+        </div>
+        
+    }
+    
     
 </header>

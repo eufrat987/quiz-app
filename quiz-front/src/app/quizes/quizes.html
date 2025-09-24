@@ -1,1 +1,23 @@
-<p>quizes works!</p>
+
+
+
+<div [class]="styles.formStyleClasses" class="">
+
+    <button [class]="styles.buttonStyleClasses">[+] Create quiz</button>
+    <br>
+
+    <div class="flex flex-wrap mt-5" >
+
+        @for (quiz of quizes.value(); track quiz.id) {
+            <div [class]="styles.formGroupStyleClasses" class="bg-amber-100 dark:bg-amber-800 min-w-sm p-3 py-8 dark:border-amber-50 border-amber-900 border-4
+                 hover:bg-amber-200 hover:dark:bg-amber-700 active:bg-amber-300 dark:active:bg-amber-600">
+                <div> {{ quiz.title }}  </div>
+                <br>
+                <div class="text-xs">  {{quiz.numOfQuestions }} questions </div>
+            
+            </div>
+        }
+
+    </div>
+
+</div>

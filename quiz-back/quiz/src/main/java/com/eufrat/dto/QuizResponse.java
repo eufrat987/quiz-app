@@ -15,5 +15,5 @@ public class QuizResponse {
     Long id;
     String title;
     List<QuestionResponse> questions;
-
+    Integer numOfQuestions;
 }

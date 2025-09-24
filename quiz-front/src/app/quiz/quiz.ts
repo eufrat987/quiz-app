@@ -7,7 +7,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { QuizDto } from '../../models/QuizDto';
 import { Styles } from '../services/styles';
 import { User } from '../services/user';
-import { lastValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-quiz',
@@ -29,15 +29,13 @@ export class Quiz {
   questions = signal<QuestionDto[]>([])
   styles = inject(Styles)
   user = inject(User)
-  isLoading = signal(true)
   quiz = resource({
-    loader: () => lastValueFrom(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"))
+    loader: () => firstValueFrom(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random"))
   })
 
   constructor() {
     
 
-    this.isLoading.set(true)
     this.user.redirectIfNeeded()
     // this.quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random");
 

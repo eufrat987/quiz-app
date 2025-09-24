@@ -3,7 +3,6 @@ package com.eufrat.controller;
 import com.eufrat.dto.QuizResponse;
 import com.eufrat.service.QuizService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -15,20 +14,19 @@ public class QuizController {
 
     private final QuizService quizService;
 
+    @GetMapping
+    public List<QuizResponse> getAllQuizes() {
+        return quizService.getAllQuizes();
+    }
+
     @GetMapping("/random")
-    @ResponseStatus(HttpStatus.OK)
     public Optional<QuizResponse> getQuiz() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
         return quizService.getRandomQuiz();
     }
 
     @PostMapping("/{id}")
     public int create(@PathVariable("id") Long id, @RequestBody Map<String, Map<String, String>> request) {
-//        quizService.create();
+        quizService.create();
         return quizService.getScore(id, request);
     }
 }

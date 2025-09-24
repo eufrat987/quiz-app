@@ -16,20 +16,25 @@ public class QuizService {
 
     private final QuizRepository quizRepository;
 
+    public List<QuizResponse> getAllQuizes() {
+        return quizRepository.findAll().stream().map(quiz -> QuizResponse.builder()
+                .id(quiz.getId())
+                .title(quiz.getTitle())
+                .numOfQuestions(quiz.getNumOfQuestions())
+                .build()).toList();
+    }
+
     public Optional<QuizResponse> getRandomQuiz() {
-        return quizRepository.getRandomQuiz().map(quiz -> {
-            return QuizResponse.builder()
-                    .id(quiz.getId())
-                    .title(quiz.getTitle())
-                    .questions(quiz.getQuestions().stream().map(q -> {
-                        return QuestionResponse.builder()
-                                .id(q.getId())
-                                .question(q.getQuestion())
-                                .choices(q.getChoices())
-                                .build();
-                    }).toList())
-                    .build();
-        });
+        return quizRepository.getRandomQuiz().map(quiz -> QuizResponse.builder()
+                .id(quiz.getId())
+                .title(quiz.getTitle())
+                .numOfQuestions(quiz.getNumOfQuestions())
+                .questions(quiz.getQuestions().stream().map(q -> QuestionResponse.builder()
+                        .id(q.getId())
+                        .question(q.getQuestion())
+                        .choices(q.getChoices())
+                        .build()).toList())
+                .build());
     }
 
     public int getScore(Long quizId, Map<String, Map<String, String>> request) {
@@ -77,6 +82,7 @@ public class QuizService {
 
         x.setTitle("Geography");
         x.setQuestions(List.of(q1, q2, q3));
+        x.setNumOfQuestions(3);
         quizRepository.save(x);
     }
 

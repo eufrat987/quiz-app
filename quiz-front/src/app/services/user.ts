@@ -10,9 +10,8 @@ export class User {
     validUsername = computed(() => (this.username()?.trim().length ?? 0) > 0)
     
     redirectIfNeeded() {
-        if (this.validUsername()) {
-            localStorage.setItem("username", this.username()!)
-            this.router.navigate(["random"])
+        if (!this.validUsername()) {
+            this.router.navigate([""])
         }
     }
 }
