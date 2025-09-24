@@ -28,5 +28,13 @@ export class Quizes {
   createQuizClick() {
 
   }
+
+  getQuestionsWord(num : number) : string {
+    if (num == 1) {
+      return "1 question"
+    }
+    
+    return num + " questions"
+  }
   
 }

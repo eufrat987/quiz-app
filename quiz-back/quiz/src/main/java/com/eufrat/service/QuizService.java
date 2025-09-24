@@ -25,6 +25,9 @@ public class QuizService {
     }
 
     public Optional<QuizResponse> getQuiz(Long id) {
+        if (id == 0) {
+            return getRandomQuiz();
+        }
         return quizRepository.findById(id).map(quiz -> QuizResponse.builder()
                 .id(quiz.getId())
                 .title(quiz.getTitle())

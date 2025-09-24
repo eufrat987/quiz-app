@@ -38,7 +38,7 @@ export class Quiz {
   })
 
   constructor() {
-    this.id = +this.route.snapshot.paramMap.get("id")!;
+    this.id = +(this.route.snapshot.paramMap.get("id") ?? '0');
 
     this.user.redirectIfNeeded()
     // this.quiz = toSignal(this.http.get<QuizDto>("http://localhost:8080/api/quiz/random");
