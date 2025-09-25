@@ -14,7 +14,7 @@ export class Styles {
     }
     
     get formStyleClasses() : string {
-        return "shadow m-auto my-3 p-3 text-center bg-blue-50 dark:bg-blue-900 rounded max-w-7xl" ;  
+        return "shadow m-auto my-3 p-3 text-center bg-inherit rounded max-w-7xl" ;  
     }
 
     get formGroupStyleClasses() : string {
