@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { User } from '../../services/user';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { routes } from '../../app.routes';
 import { Username } from '../../username/username';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './header.html',
   styleUrl: './header.css'
 })

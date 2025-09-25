@@ -1,7 +1,7 @@
 <header class="flex bg-amber-500 dark:bg-amber-900 text-amber-900 dark:text-amber-500">
     
     <div class="flex py-6 px-3 dark:hover:bg-amber-700 hover:bg-amber-200">
-        <a class="flex" href="#">
+        <a class="flex" [routerLink]="['']">
             <div class="flex items-center min-h-16 min-w-16">
                 <img src="quiz.png" class="w-16 h-16">
                 <span class="hidden md:flex md:text-2xl font-semibold m-3">Quiz App</span>
@@ -10,13 +10,13 @@
         
     </div>
     
-    <a href="quizes" class="flex p-3 items-center dark:hover:bg-amber-700 hover:bg-amber-200">
+    <a [routerLink]="['quizes']" class="flex p-3 items-center dark:hover:bg-amber-700 hover:bg-amber-200">
         <div class="md:text-xl">
             Quizes
         </div>
     </a>
 
-    <a href="quiz/0" class="flex whitespace-nowrap p-3 items-center dark:hover:bg-amber-700 hover:bg-amber-200">
+    <a [routerLink]="['quiz/0']" class="flex whitespace-nowrap p-3 items-center dark:hover:bg-amber-700 hover:bg-amber-200">
         <div class="md:text-xl">
             Random quiz
         </div>
