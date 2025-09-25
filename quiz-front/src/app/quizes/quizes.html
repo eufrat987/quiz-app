@@ -18,18 +18,22 @@
             
         } @else {
             
-            
-            @for (quiz of quizes.value(); track quiz.id) {
-                <div [class]="styles.formGroupStyleClasses" class="bg-amber-100 dark:bg-amber-800 min-w-sm 
-                p-3 py-8 dark:border-amber-50 border-amber-900 border-4
-                hover:bg-amber-200 hover:dark:bg-amber-700 active:bg-amber-300 dark:active:bg-amber-600"
-                (click)="quizClick(quiz.id)">
-                <div> {{ quiz.title }}  </div>
-                <br>
-                <div class="text-xs">  {{ getQuestionsWord(quiz.numOfQuestions) }} </div>
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2"> -->
                 
-            </div>
-        }
+                
+                @for (quiz of quizes.value(); track quiz.id) {
+                    <div [class]="styles.formGroupStyleClasses" class="bg-amber-100 dark:bg-amber-800  
+                    p-3 py-8 dark:border-amber-50 border-amber-900 border-4 min-w-60  md:min-w-sm
+                    hover:bg-amber-200 hover:dark:bg-amber-700 active:bg-amber-300 dark:active:bg-amber-600"
+                    (click)="quizClick(quiz.id)">
+                    <div> {{ quiz.title }}  </div>
+                    <br>
+                    <div class="text-xs">  {{ getQuestionsWord(quiz.numOfQuestions) }} </div>
+                    
+                </div>
+            }
+            
+        <!-- </div> -->
     }
     
 </div>
